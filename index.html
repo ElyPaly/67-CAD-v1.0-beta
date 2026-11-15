@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>67 CAD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button id="toggleSidebar" class="toggle-btn">◀</button>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="logo">
+            <h2>67 CAD <span style="font-size: 12px; color: #888; font-weight: normal; margin-left: 5px;">v1.0-beta</span></h2>
+        </div>
+
+        <div class="tool-section">
+            <h3 class="section-title" style="color: #4CAF50; cursor: default;">Режим</h3>
+            <div style="display: flex; gap: 5px; margin-bottom: 10px;">
+                <button class="btn mode-btn" id="modeMove">Редактор</button>
+                <button class="btn mode-btn" id="modeDraw">Трассировка</button>
+                <button class="btn mode-btn delete-btn" id="modeDelete">Удаление</button>
+            </div>
+        </div>
+        
+        <div class="tool-section">
+            <h3 class="section-title">Платы <span class="toggle-icon">▼</span></h3>
+            <div class="section-content">
+                <button class="btn btn-add" data-type="arduino">Arduino Uno R3</button>
+            </div>
+        </div>
+
+        <div class="tool-section">
+            <h3 class="section-title">Индикаторы <span class="toggle-icon">▼</span></h3>
+            <div class="section-content">
+                <button class="btn btn-add" data-type="display">Индикатор 3461BS</button>
+            </div>
+        </div>
+
+        <div class="tool-section">
+            <h3 class="section-title">Шины и узлы <span class="toggle-icon">▼</span></h3>
+            <div class="section-content">
+                <button class="btn btn-add" id="btnAddVcc" style="border-left: 4px solid #ff4d4d;">+ Шина VCC</button>
+                <button class="btn btn-add" id="btnAddGnd" style="border-left: 4px solid #4CAF50;">+ Шина GND</button>
+                <button class="btn btn-add" id="btnAddJunction" style="border-left: 4px solid #ffd700;">+ Узел (Точка)</button>
+            </div>
+        </div>
+
+        <div class="tool-section">
+            <h3 class="section-title">Пассивные <span class="toggle-icon">▼</span></h3>
+            <div class="section-content">
+                <button class="btn btn-add" data-type="resistor">Резистор</button>
+                <button class="btn btn-add" data-type="capacitor_ceramic">Конденсатор (керамика)</button>
+                <button class="btn btn-add" data-type="capacitor_electrolytic">Конденсатор (электролит)</button>
+                <button class="btn btn-add" data-type="speaker">Динамик</button>
+                <button class="btn btn-add" data-type="jumper">Перемычка</button>
+            </div>
+        </div>
+
+        <div class="tool-section">
+            <h3 class="section-title">Полупроводники <span class="toggle-icon">▼</span></h3>
+            <div class="section-content">
+                <button class="btn btn-add" data-type="transistor_pnp">Транзистор PNP</button>
+                <button class="btn btn-add" data-type="transistor_npn">Транзистор NPN</button>
+            </div>
+        </div>
+
+        <div class="tool-section">
+            <h3 class="section-title">Кнопки <span class="toggle-icon">▼</span></h3>
+            <div class="section-content">
+                <button class="btn btn-add" data-type="button">Кнопка (2 контакта)</button>
+                <button class="btn btn-add" data-type="button_4pin">Кнопка (4 контакта)</button>
+            </div>
+        </div>
+
+        <div class="tool-section">
+            <h3 class="section-title">Светодиоды <span class="toggle-icon">▼</span></h3>
+            <div class="section-content">
+                <button class="btn btn-add" data-type="led_red" style="border-left: 4px solid #f44336;">Красный</button>
+                <button class="btn btn-add" data-type="led_yellow" style="border-left: 4px solid #FFEB3B;">Желтый</button>
+                <button class="btn btn-add" data-type="led_green" style="border-left: 4px solid #4CAF50;">Зеленый</button>
+            </div>
+        </div>
+
+        <div class="tool-section">
+            <h3 class="section-title">Прочее <span class="toggle-icon">▼</span></h3>
+            <div class="section-content">
+                <button class="btn btn-add" data-type="note">Записка</button>
+            </div>
+        </div>
+
+        <div class="tool-section">
+            <h3 class="section-title">Цвет провода <span class="toggle-icon">▼</span></h3>
+            <div class="section-content">
+                <div class="color-palette" id="colorPalette"></div>
+            </div>
+        </div>
+
+        <div class="tool-section">
+            <h3 class="section-title">Действия <span class="toggle-icon">▼</span></h3>
+            <div class="section-content">
+                <button class="btn btn-save" id="btnSave">Сохранить PNG</button>
+                <button class="btn btn-export" id="btnExport" style="border-left: 4px solid #00BCD4;">Экспорт (JSON)</button>
+                <button class="btn btn-import" id="btnImport" style="border-left: 4px solid #FF9800;">Импорт (JSON)</button>
+                <input type="file" id="fileInput" accept=".json" style="display: none;">
+                <button class="btn btn-theme" id="btnTheme">Сменить тему</button>
+                <button class="btn btn-danger" id="btnClear">Очистить холст</button>
+            </div>
+        </div>
+    </aside>
+
+    <main class="canvas-container" id="canvasContainer">
+        <canvas id="editorCanvas"></canvas>
+        <input type="text" id="resistorInput" class="floating-input">
+    </main>
+
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
